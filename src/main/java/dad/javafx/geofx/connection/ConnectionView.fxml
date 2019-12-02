@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="connectionGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" spacing="5.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <ImageView fx:id="globalImageView" fitHeight="49.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../resources/Icons/Global-Position-icon.png" />
+               </image>
+            </ImageView>
+            <Label maxWidth="1.7976931348623157E308" text="REGISTERED ISP: ">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="registeredValorLabel" maxWidth="1.7976931348623157E308" text="Label" />
+         </children>
+      </HBox>
+      <VBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">
+         <children>
+            <Label alignment="TOP_LEFT" text="TYPE">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeValorLabel" text="Label" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" GridPane.rowIndex="3">
+         <children>
+            <Label alignment="TOP_LEFT" text="HOSTNAME">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="hostNameValorLabel" text="Label" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Label alignment="TOP_LEFT" text="ASN">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="asnValorLabel" text="Label" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="372.0" GridPane.valignment="CENTER">
+         <children>
+            <Label alignment="TOP_LEFT" text="IP ADDRESS">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="ipAddressValorLabel" text="Label" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</GridPane>
