@@ -1,5 +1,6 @@
 package dad.javafx.geofx.root;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,6 +8,7 @@ import java.util.ResourceBundle;
 import dad.javafx.geofx.connection.ConnectionController;
 import dad.javafx.geofx.location.LocationController;
 import dad.javafx.geofx.security.SecurityController;
+import dad.javafx.geofx.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,10 +17,13 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TabPane.TabClosingPolicy;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class RootController implements Initializable {
+
+	private final String PATH = "./src/main/resources/Icons";
 	  
 	 	@FXML
 	    private BorderPane view;
@@ -47,6 +52,8 @@ public class RootController implements Initializable {
 	    ConnectionController connectionController;
 		LocationController locationController;
 		SecurityController securityController;
+		
+		RootModel model = new RootModel();
     
     public RootController() throws IOException {  
     	connectionController = new ConnectionController();
@@ -60,6 +67,13 @@ public class RootController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//imagen
+		wifiImageView.imageProperty().bind(model.wifiImageViewProperty());
+		model.setWifiImageView(new Image(new File(PATH + "/wifi-icon.png").toURI().toString()));
+		//textfield
+		ipText.textProperty().bind(model.ipTextProperty());
+		model.setIpText(Utils.getUserIP());
+		
 		geofxTabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
 		locationTab.setContent(locationController.getView());

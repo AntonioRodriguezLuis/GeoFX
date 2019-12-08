@@ -1,5 +1,6 @@
 package dad.javafx.geofx.location;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -8,10 +9,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class LocationController implements Initializable {
+	
+	private final String PATH = "./src/main/resources/Icons";
+	
 	@FXML
 	private GridPane locationGrid;
 
@@ -44,6 +49,8 @@ public class LocationController implements Initializable {
 
 	@FXML
 	private Label currencyValorLabel;
+	
+	private LocationModel model = new LocationModel();
 
 	public LocationController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("LocationView.fxml"));
@@ -53,7 +60,20 @@ public class LocationController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+			// Image
+			banderaImageView.imageProperty().bind(model.banderaImageViewProperty());
+			// TODO provisional LA BANDERA DE ESPAÑA
+			model.setBanderaImageView(new Image(new File(PATH + "/ES.png").toURI().toString()));
+			//label
+			ipLocationValorLabel.textProperty().bind(model.ipLocationValorLabelProperty());
+			latitudeValorLabel.textProperty().bind(model.latitudeValorLabelProperty());
+			cityValorLabel.textProperty().bind(model.cityValorLabelProperty());
+			languageValorLabel.textProperty().bind(model.languageValorLabelProperty());
+			callingValorLabel.textProperty().bind(model.callingValorLabelProperty());
+			longitudeValorLabel.textProperty().bind(model.longitudeValorLabelProperty());
+			zipCodeValorLabel.textProperty().bind(model.zipCodeValorLabelProperty());
+			timeZoneValorLabel.textProperty().bind(model.timeZoneValorLabelProperty());
+			currencyValorLabel.textProperty().bind(model.currencyValorLabelProperty());
 
 	}
 
